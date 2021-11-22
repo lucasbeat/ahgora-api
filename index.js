@@ -10,8 +10,9 @@ app.use(express.json());
 const port = process.env.PORT || 8080;
 app.listen(port, console.log(`Running on: ${port}`));
 
-app.get('/', async (req, res) => {
-    res.json({status: 'Ready!'});
+app.post('/pause', async (req, res) => {
+    console.log(req.body);
+    res.json({status: 'Received!'});
 })
 
 app.get('/pausas', async (req, res) => {
@@ -25,24 +26,7 @@ app.get('/pausas', async (req, res) => {
     }
 })
 
-app.post('/pausa', async (req, res) => {
-    const data = {
-        id: 1,
-        agent: req.body.agent,
-        reason: req.body.reason.value,
-        date: moment(new Date()).format('MMMM Do YYYY, h:mm:ss a')
-    };
-    console.log(data);
-    res.json(data)
-})
-
-app.put('/pausa/:id', async (req, res) => {
-    const data = {
-        agent: req.body.agent,
-        reason: req.body.reason.value,
-        date_1: moment(new Date()).format('MMMM Do YYYY, h:mm:ss a'),
-        date_2: moment(new Date()).format('MMMM Do YYYY, h:mm:ss a')
-    };
-    console.log(data);
-    res.json(data)
-})
+app.patch('/pausa/:id', async (req, res) => {
+    console.log(req.body);
+    res.json({"message": req.body })
+});
