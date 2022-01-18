@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "13ac8934-f657-443b-8e7a-3d8a4ed1d113",
+		"name": "Ahgora Break",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Pauses",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/pauses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pauses"
+					],
+					"query": [
+						{
+							"key": "reason",
+							"value": "",
+							"description": "Motivo",
+							"disabled": true
+						},
+						{
+							"key": "agent",
+							"value": null,
+							"description": "Agente",
+							"disabled": true
+						},
+						{
+							"key": "oflline",
+							"value": null,
+							"description": "Saida da pausa",
+							"disabled": true
+						},
+						{
+							"key": "online",
+							"value": null,
+							"description": "Volta da pausa",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": null,
+							"description": "Dia (DD-MM-AAAA)",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Pause",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\":\"qawbdlaeyim\",\n    \"online\": \"22:10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/pause",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"pause"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete All",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/deleteEverything",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"deleteEverything"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
