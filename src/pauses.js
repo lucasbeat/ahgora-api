@@ -32,8 +32,16 @@ const editInterval = async (req, res) => {
 const getPauses = async (req, res) => {
     try {
         const pauses = await Interval.find(req.query).lean();
+        console.log(pauses);
         res.json({ 
-            data: pauses
+            pasues: {
+                date: pauses.date,
+                agent: pauses.agent,
+                date: pauses.date,
+                reason: pauses.reason,
+                offline: pauses.offline,
+                online: pauses.online
+            }
         });
 
     } catch (error) {
